@@ -1,12 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
+import { EventPattern } from '@nestjs/microservices';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @EventPattern('log_message')
+  async handleMessagePrinted(data: Record<string, unknown>) {
+    this.appService.logMessage(data.text)
   }
 }
