@@ -11,10 +11,11 @@ const logger = new Logger('ServerMain');
  * */ 
 
 const microserviceOptions : MicroserviceOptions = {
-  transport: Transport.TCP,
+  transport: Transport.REDIS,
   options: {
-    host: '127.0.0.1',
-    port: 3000
+    url: 'redis://localhost:6379',
+    retryAttempts : 5,
+    retryDelay : 5000
   },
 };
 

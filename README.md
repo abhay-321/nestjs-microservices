@@ -1,5 +1,7 @@
 # nestjs-microservices
 
+# Install redis on your local system
+# https://redis.io/download
 
 # To run micro-service server
 ``` bash
