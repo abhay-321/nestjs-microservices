@@ -7,6 +7,10 @@ export class AppController {
 
   @Get()
   getUser(@Query() query){
+    
+    if(!query.username)
+    return `Please add Query param as "?username=abhay"`;
+
     return this.appService.getUser(query.username);
   }
 }

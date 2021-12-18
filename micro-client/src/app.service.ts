@@ -3,10 +3,11 @@ import { ClientProxyFactory, Transport, ClientProxy, ClientOptions } from '@nest
 
 // Creating client options here, specifying address & port of server
 const clientOptions : ClientOptions = {
-  transport: Transport.TCP,
+  transport: Transport.REDIS,
   options: {
-    host: '127.0.0.1',
-    port: 3000,
+    url: 'redis://localhost:6379',
+    retryAttempts : 5,
+    retryDelay : 5000
   },
 }
 
