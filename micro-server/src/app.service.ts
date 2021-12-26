@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { User } from './model/User';
+import db = require('./db/user');
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  
+  findUserByUserId(id : number): User {
+    return db.findUserByID(id);
   }
 }
